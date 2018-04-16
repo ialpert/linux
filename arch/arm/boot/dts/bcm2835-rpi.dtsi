@@ -1,4 +1,5 @@
 #include <dt-bindings/power/raspberrypi-power.h>
+#include "bcm283x-rpi-i2c10mux_0_28.dtsi"
 
 / {
 	memory {
@@ -45,8 +46,6 @@
 };
 
 &i2c0 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&i2c0_gpio0>;
 	status = "okay";
 	clock-frequency = <100000>;
 };
@@ -105,4 +104,12 @@
 
 &dsi1 {
 	power-domains = <&power RPI_POWER_DOMAIN_DSI1>;
+};
+
+&csi0 {
+	power-domains = <&power RPI_POWER_DOMAIN_UNICAM0>;
+};
+
+&csi1 {
+	power-domains = <&power RPI_POWER_DOMAIN_UNICAM1>;
 };
